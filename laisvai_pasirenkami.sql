@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 07, 2011 at 06:10 PM
+-- Generation Time: Nov 07, 2011 at 07:23 PM
 -- Server version: 5.5.8
 -- PHP Version: 5.3.5
 
@@ -26,14 +26,15 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 --
 
 CREATE TABLE IF NOT EXISTS `dalyk_sar` (
-  `id_dalyko` smallint(5) unsigned NOT NULL,
-  `dalyko_pav` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `id_dalyko` smallint(5) NOT NULL,
+  `dalyko_pav` varchar(100) NOT NULL,
   `TK` tinyint(1) NOT NULL,
   `IS` tinyint(1) NOT NULL,
   `KT` tinyint(1) NOT NULL,
+  `ET` tinyint(1) NOT NULL,
   `PI` tinyint(1) NOT NULL,
-  `ET` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  PRIMARY KEY (`id_dalyko`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `dalyk_sar`
@@ -47,12 +48,12 @@ CREATE TABLE IF NOT EXISTS `dalyk_sar` (
 --
 
 CREATE TABLE IF NOT EXISTS `grupiu_sarasas` (
-  `id` tinyint(3) unsigned NOT NULL,
-  `grupe` varchar(2) COLLATE utf8_unicode_ci NOT NULL,
-  `metai` tinyint(4) unsigned NOT NULL,
-  `pogrupis` tinyint(3) unsigned NOT NULL,
+  `id` tinyint(3) NOT NULL,
+  `grupe` varchar(2) NOT NULL,
+  `metai` tinyint(4) NOT NULL,
+  `pogrupis` tinyint(3) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `grupiu_sarasas`
@@ -66,8 +67,8 @@ CREATE TABLE IF NOT EXISTS `grupiu_sarasas` (
 --
 
 CREATE TABLE IF NOT EXISTS `pasirinkti_dal` (
-  `id_pasirinkusio` tinyint(3) unsigned NOT NULL,
-  `id_dalyko` smallint(5) unsigned NOT NULL
+  `id_pasirinkusio` tinyint(3) NOT NULL,
+  `id_dalyko` smallint(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -82,12 +83,13 @@ CREATE TABLE IF NOT EXISTS `pasirinkti_dal` (
 --
 
 CREATE TABLE IF NOT EXISTS `zmones` (
-  `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT,
-  `vardas` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
-  `pavarde` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
-  `grupe_id` tinyint(3) unsigned NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+  `id` mediumint(8) NOT NULL,
+  `vardas` varchar(20) NOT NULL,
+  `pavarde` varchar(20) NOT NULL,
+  `grupe_id` smallint(3) NOT NULL,
+  `email` varchar(35) NOT NULL,
+  `password` varchar(32) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `zmones`
